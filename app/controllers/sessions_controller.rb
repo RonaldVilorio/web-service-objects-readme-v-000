@@ -3,5 +3,6 @@ class SessionsController < ApplicationController
 
   def create
     foursquare = FoursquareService.new
+    session[:token] = foursquare.authenticate!(ENV['FOURSQUARE_CLIENT_ID'],)
   end
 end
